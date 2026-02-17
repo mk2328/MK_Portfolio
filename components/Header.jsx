@@ -120,7 +120,7 @@ export default function Header() {
                     <motion.a 
                         whileHover={{ scale: 1.05, backgroundColor: "rgba(217, 70, 239, 0.05)", borderColor: "#D946EF" }}
                         whileTap={{ scale: 0.95 }}
-                        href="/path-to-your-resume.pdf" 
+                        href="/assets/MK_ResumeUpdated.pdf" 
                         download
                         className="px-8 py-3 border border-black/10 dark:border-white/20 text-black dark:text-white rounded-full font-semibold flex items-center gap-3 backdrop-blur-md text-sm transition-all"
                     >
