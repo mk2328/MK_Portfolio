@@ -22,16 +22,16 @@ export default function Footer() {
                     {/* Logo - Matching Navbar Style */}
                     <div onClick={scrollToTop} className="cursor-pointer group">
                         <span className="text-5xl font-black text-gray-900 dark:text-white transition-transform duration-300 group-hover:scale-110 block">
-                            MK<span className="text-[#D946EF]">.</span>
+                            MK<span className="text-[#FFB22C]">.</span>
                         </span>
                     </div>
 
                     {/* Email Contact - Professional Style */}
-                    <div className="group flex items-center gap-3 px-6 py-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl shadow-sm transition-all hover:border-[#D946EF]/50 hover:shadow-lg hover:shadow-[#D946EF]/10">
-                        <Mail className="w-5 h-5 text-[#D946EF]" />
+                    <div className="group flex items-center gap-3 px-6 py-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl shadow-sm transition-all hover:border-[#FFB22C]/50 hover:shadow-lg hover:shadow-[#D946EF]/10">
+                        <Mail className="w-5 h-5 text-[#FFB22C]" />
                         <a 
                             href="mailto:muskankamran3369@gmail.com" 
-                            className="text-gray-700 dark:text-gray-300 font-Ovo text-lg hover:text-[#D946EF] transition-colors"
+                            className="text-gray-700 dark:text-gray-300 font-Ovo text-lg hover:text-[#FFB22C] transition-colors"
                         >
                             muskankamran3369@gmail.com
                         </a>
@@ -59,7 +59,7 @@ export default function Footer() {
                                     href={social.link} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:text-[#D946EF] hover:border-[#D946EF] hover:-translate-y-1 transition-all duration-300"
+                                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:text-[#FFB22C] hover:border-[#FFB22C] hover:-translate-y-1 transition-all duration-300"
                                 >
                                     {social.icon}
                                 </a>
@@ -69,7 +69,7 @@ export default function Footer() {
                         {/* Scroll to Top Button */}
                         <button 
                             onClick={scrollToTop}
-                            className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#D946EF] text-white shadow-lg shadow-purple-500/30 hover:scale-110 transition-all ml-2"
+                            className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#FFB22C] text-white shadow-lg shadow-purple-500/30 hover:scale-110 transition-all ml-2"
                         >
                             <ArrowUp size={20} />
                         </button>

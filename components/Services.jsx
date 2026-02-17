@@ -75,8 +75,8 @@ export default function Services() {
     return (
         <section id="services" className="relative w-full px-6 md:px-[10%] py-24 bg-white dark:bg-[#050505] transition-colors duration-500 overflow-hidden">
             
-            {/* Background Accent - Light mode mein visibility badhayi hai */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D946EF]/10 dark:bg-[#D946EF]/5 rounded-full blur-[120px] pointer-events-none" />
+            {/* Background Accent - Purple se Yellow/Amber kiya gaya hai */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFB22C]/10 dark:bg-[#FFB22C]/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Section Header */}
@@ -86,10 +86,10 @@ export default function Services() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h4 className="text-[#d965eb] font-bold tracking-[0.2em] uppercase text-sm mb-3">Professional Expertise</h4>
+                    <h4 className="text-[#FFB22C] font-bold tracking-[0.2em] uppercase text-sm mb-3">Professional Expertise</h4>
                     <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 font-Ovo tracking-tight">Technical Services</h2>
                     <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 text-lg font-Ovo">
-                        Transforming complex ideas into <span className="text-[#d965eb] font-bold">digital realities</span> through modern tech stacks and leadership.
+                        Transforming complex ideas into <span className="text-[#FFB22C] font-bold">digital realities</span> through modern tech stacks and leadership.
                     </p>
                 </motion.div>
 
@@ -101,8 +101,8 @@ export default function Services() {
                             onClick={() => setActiveTab(cat)}
                             className={`px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
                                 activeTab === cat 
-                                ? 'bg-[#d965eb] border-[#D946EF] text-white shadow-xl shadow-purple-500/30' 
-                                : 'bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:border-[#D946EF] hover:text-[#D946EF]'
+                                ? 'bg-[#FFB22C] border-[#FFB22C] text-black shadow-xl shadow-yellow-500/30' 
+                                : 'bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:border-[#FFB22C] hover:text-[#FFB22C]'
                             }`}
                         >
                             {cat}
@@ -121,16 +121,16 @@ export default function Services() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 whileHover={{ y: -10 }}
-                                className="group relative overflow-hidden p-8 bg-white dark:bg-white/[0.03] backdrop-blur-2xl border border-gray-100 dark:border-white/10 rounded-[2.5rem] transition-all duration-500 hover:border-[#D946EF]/40 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] dark:shadow-none hover:shadow-[0_20px_50px_-20px_rgba(217,70,239,0.15)]"
+                                className="group relative overflow-hidden p-8 bg-white dark:bg-white/[0.03] backdrop-blur-2xl border border-gray-100 dark:border-white/10 rounded-[2.5rem] transition-all duration-500 hover:border-[#FFB22C]/40 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] dark:shadow-none hover:shadow-[0_20px_50px_-20px_rgba(255,178,44,0.15)]"
                             >
                                 {/* Premium Corner Accent */}
                                 <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0">
-                                    <ArrowUpRight className="text-[#d965eb] w-6 h-6" />
+                                    <ArrowUpRight className="text-[#FFB22C] w-6 h-6" />
                                 </div>
 
                                 <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
-                                    {/* Icon Container with Glow - Light mode optimized */}
-                                    <div className="relative flex-shrink-0 w-20 h-20 flex items-center justify-center bg-gray-50 dark:bg-white/10 rounded-3xl border border-gray-100 dark:border-white/10 text-[#d965eb] shadow-[inset_0_2px_10px_rgba(0,0,0,0.02)] group-hover:scale-110 group-hover:rotate-[10deg] transition-all duration-500">
+                                    {/* Icon Container with Glow */}
+                                    <div className="relative flex-shrink-0 w-20 h-20 flex items-center justify-center bg-gray-50 dark:bg-white/10 rounded-3xl border border-gray-100 dark:border-white/10 text-[#FFB22C] shadow-[inset_0_2px_10px_rgba(0,0,0,0.02)] group-hover:scale-110 group-hover:rotate-[10deg] transition-all duration-500">
                                         {service.icon}
                                     </div>
                                     
@@ -140,10 +140,10 @@ export default function Services() {
                                             {service.description}
                                         </p>
 
-                                        {/* Skill Tags - Light mode background visibility */}
+                                        {/* Skill Tags */}
                                         <div className="flex flex-wrap gap-2">
                                             {service.skills.map(skill => (
-                                                <span key={skill} className="text-[10px] font-bold px-3 py-1 bg-gray-100/80 dark:bg-white/5 text-gray-500 dark:text-gray-500 rounded-lg group-hover:bg-[#D946EF]/10 group-hover:text-[#d965eb] transition-all duration-300 border border-transparent group-hover:border-[#D946EF]/20">
+                                                <span key={skill} className="text-[10px] font-bold px-3 py-1 bg-gray-100/80 dark:bg-white/5 text-gray-500 dark:text-gray-500 rounded-lg group-hover:bg-[#FFB22C]/10 group-hover:text-[#FFB22C] transition-all duration-300 border border-transparent group-hover:border-[#FFB22C]/20">
                                                     {skill}
                                                 </span>
                                             ))}
@@ -152,7 +152,7 @@ export default function Services() {
                                 </div>
 
                                 {/* Bottom Glow Line */}
-                                <div className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-transparent via-[#d965eb] to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-transparent via-[#FFB22C] to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             </motion.div>
                         ))}
                     </AnimatePresence>
