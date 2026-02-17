@@ -54,8 +54,9 @@ export default function Navbar() {
 
                 <a href="https://prebuiltui.com?utm_source=eliana">
                     <span className="text-5xl font-bold cursor-pointer mr-14 text-black dark:text-white">
-                        MK<span className="text-purple-500">.</span>
+                        MK<span className="text-[#D946EF]">.</span>
                     </span>
+                    
                 </a>
 
                 <ul ref={navLinkRef} className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent ">
