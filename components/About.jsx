@@ -13,9 +13,15 @@ export default function About() {
         { name: 'MongoDB', icon: '/assets/mongodb.png' },
         { name: 'Figma', icon: '/assets/figma.png' },
         { name: 'Git', icon: '/assets/git.png' },
-        { name: 'Node.js', icon: '/assets/node.png' },
-        { name: 'React', icon: '/assets/react.png' },
-        { name: 'Tailwind', icon: '/assets/tailwind.png' },
+        {
+            name: 'Node.js',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'
+        },
+        {
+            name: 'React',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+        },
+        { name: 'Python', icon: '/assets/python.png' },
     ];
 
     return (
@@ -152,8 +158,11 @@ export default function About() {
                                             <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-gray-700"></span>
                                         </span>
 
-                                        <img src={tool.icon} alt={tool.name} className="w-8 h-8 object-contain" />
-                                    </motion.div>
+                                        <img
+                                            src={tool.icon}
+                                            alt={tool.name}
+                                            className={`w-8 h-8 object-contain ${tool.name === 'React' || tool.name === 'Node.js' ? 'scale-110 p-0.5' : ''}`}
+                                        />                                    </motion.div>
                                 ))}
                             </div>
                         </div>
