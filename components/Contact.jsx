@@ -1,104 +1,127 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import confetti from 'canvas-confetti'
 
 export default function Contact() {
     const [result, setResult] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+
     const onSubmit = async (event) => {
         event.preventDefault();
-        const hCaptcha = event.target.querySelector('textarea[name=h-captcha-response]').value;
-        if (!hCaptcha) {
-            event.preventDefault();
-            setResult("Please fill out captcha field");
-            return
-        }
-        setResult("Sending....");
+        setIsSubmitting(true);
+        setResult("");
+
         const formData = new FormData(event.target);
+        
+        // Web3Forms Access Key
+        formData.append("access_key", "987302cd-1f4e-436f-8ff9-f14dc495a37d"); 
 
-        // ----- Enter your Web3 Forms Access key below---------
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+            const data = await response.json();
 
-        formData.append("access_key", "--- enter your access key here-------");
-
-        const res = {success:true}
-        // const res = await fetch("https://api.web3forms.com/submit", {
-        //     method: "POST",
-        //     body: formData
-        // }).then((res) => res.json());
-
-        if (res.success) {
-            console.log("Success", res);
-            setResult(res.message);
-            event.target.reset();
-        } else {
-            console.log("Error", res);
-            setResult(res.message);
+            if (data.success) {
+                setIsSuccess(true);
+                // Celebration Confetti! 🎉
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#FFB22C', '#000000', '#ffffff']
+                });
+                event.target.reset();
+            } else {
+                setResult(data.message);
+            }
+        } catch (error) {
+            setResult("Network error! Please try again.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
-    function CaptchaLoader() {
-        const captchadiv = document.querySelectorAll('[data-captcha="true"]');
-        if (captchadiv.length) {
-            let lang = null;
-            let onload = null;
-            let render = null;
-
-            captchadiv.forEach(function (item) {
-                const sitekey = item.dataset.sitekey;
-                lang = item.dataset.lang;
-                onload = item.dataset.onload;
-                render = item.dataset.render;
-
-                if (!sitekey) {
-                    item.dataset.sitekey = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
-                }
-            });
-
-            let scriptSrc = "https://js.hcaptcha.com/1/api.js?recaptchacompat=off";
-            if (lang) {
-                scriptSrc += `&hl=${lang}`;
-            }
-            if (onload) {
-                scriptSrc += `&onload=${onload}`;
-            }
-            if (render) {
-                scriptSrc += `&render=${render}`;
-            }
-
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.async = true;
-            script.defer = true;
-            script.src = scriptSrc;
-            document.body.appendChild(script);
-        }
-    }
-
-    useEffect(() => {
-        CaptchaLoader();
-    }, []);
     return (
-        <div id="contact" className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/assets/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none">
+        <div id="contact" className="w-full px-[8%] py-20 scroll-mt-20 relative overflow-hidden bg-white dark:bg-[#050505] transition-colors duration-500">
+            
+            {/* Background Glows */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#FFB22C]/10 blur-[120px] -z-10 rounded-full"></div>
 
-            <h4 className="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
-            <h2 className="text-center text-5xl font-Ovo">Get in touch</h2>
-            <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">I&apos;d love to hear from you! If you have any questions, comments or feedback, please use the form below.</p>
+            <div className="max-w-6xl mx-auto">
+                {!isSuccess ? (
+                    <div className="flex flex-col lg:flex-row gap-16 items-start">
+                        
+                        {/* Left Side: Text */}
+                        <div className="w-full lg:w-2/5">
+                            <h4 className="text-[#FFB22C] font-Ovo mb-4">Contact Me</h4>
+                            <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tighter text-black dark:text-white leading-tight">
+                                Let’s build something <span className="text-[#FFB22C]">great</span>.
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-400 text-lg mb-10 font-Ovo">
+                                Have a question or a project proposal? Drop a message and I'll get back to you as soon as possible.
+                            </p>
 
-            <form onSubmit={onSubmit} className="max-w-2xl mx-auto">
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-4 group">
+                                    <div className="w-12 h-12 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/10 group-hover:border-[#FFB22C] transition-all">
+                                        <img src="/assets/mail_icon.png" className="w-5 dark:invert" alt="" />
+                                    </div>
+                                    <p className="font-medium dark:text-gray-300">muskankamran3369@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
 
-                <input type="hidden" name="subject" value="Eliana Jade - New form Submission" />
+                        {/* Right Side: Form Card */}
+                        <div className="w-full lg:w-3/5 bg-white dark:bg-[#0b0b0b] p-8 md:p-12 rounded-[2.5rem] border border-gray-200 dark:border-white/10 shadow-xl">
+                            <form onSubmit={onSubmit} className="space-y-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div className="relative">
+                                        <input type="text" name="name" required placeholder=" " className="peer w-full bg-transparent border-b border-gray-300 dark:border-gray-700 py-2 outline-none focus:border-[#FFB22C] dark:focus:border-[#FFB22C] transition-all dark:text-white" />
+                                        <label className="absolute left-0 top-2 text-gray-500 transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-[#FFB22C] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Full Name</label>
+                                    </div>
+                                    <div className="relative">
+                                        <input type="email" name="email" required placeholder=" " className="peer w-full bg-transparent border-b border-gray-300 dark:border-gray-700 py-2 outline-none focus:border-[#FFB22C] dark:focus:border-[#FFB22C] transition-all dark:text-white" />
+                                        <label className="absolute left-0 top-2 text-gray-500 transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-[#FFB22C] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Email Address</label>
+                                    </div>
+                                </div>
 
-                <div className="grid grid-cols-auto gap-6 mt-10 mb-8">
-                    <input type="text" placeholder="Enter your name" className="flex-1 px-3 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white dark:bg-darkHover/30" required name="name" />
+                                <div className="relative">
+                                    <textarea name="message" required rows="4" placeholder=" " className="peer w-full bg-transparent border-b border-gray-300 dark:border-gray-700 py-2 outline-none focus:border-[#FFB22C] dark:focus:border-[#FFB22C] transition-all resize-none dark:text-white"></textarea>
+                                    <label className="absolute left-0 top-2 text-gray-500 transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-[#FFB22C] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">How can I help you?</label>
+                                </div>
 
-                    <input type="email" placeholder="Enter your email" className="flex-1 px-3 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white dark:bg-darkHover/30" required name="email" />
-                </div>
-                <textarea rows="6" placeholder="Enter your message" className="w-full px-4 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white mb-6 dark:bg-darkHover/30" required name="message"></textarea>
-                <div className="h-captcha mb-6 max-w-full" data-captcha="true"></div>
-                <button type='submit' className="py-2 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border dark:border-white/30 dark:hover:bg-darkHover">
-                Submit now
-                    <img src="/assets/right-arrow-white.png" alt="" className="w-4" />
-                </button>
-                <p className='mt-4'>{result}</p>
-            </form>
+                                <button 
+                                    type="submit" 
+                                    disabled={isSubmitting}
+                                    className="group px-10 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-semibold hover:bg-[#FFB22C] dark:hover:bg-[#FFB22C] hover:text-black transition-all duration-300 disabled:opacity-50 flex items-center gap-2"
+                                >
+                                    {isSubmitting ? "Sending..." : "Send Message"}
+                                    <img src="/assets/right-arrow-white.png" className="w-4 group-hover:invert" alt="" />
+                                </button>
+                                {result && <p className="text-sm text-[#FFB22C] font-Ovo">{result}</p>}
+                            </form>
+                        </div>
+                    </div>
+                ) : (
+                    /* --- Professional Success State --- */
+                    <div className="text-center py-20 animate-in zoom-in duration-500">
+                        <div className="text-7xl mb-6">✨</div>
+                        <h2 className="text-4xl font-bold mb-4 dark:text-white">Message Received!</h2>
+                        <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
+                            Thanks for reaching out! I've received your email and will get back to you shortly.
+                        </p>
+                        <button 
+                            onClick={() => setIsSuccess(false)}
+                            className="px-8 py-3 border border-gray-300 dark:border-white/20 rounded-full hover:bg-gray-50 dark:hover:bg-white/5 dark:text-white transition-all"
+                        >
+                            Send another
+                        </button>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

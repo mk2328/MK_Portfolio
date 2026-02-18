@@ -12,10 +12,9 @@ export default function Navbar() {
     const closeMenu = () => {
         sideMenuRef.current.style.transform = 'translateX(16rem)';
     }
+    
     const toggleTheme = () => {
-
         document.documentElement.classList.toggle('dark');
-
         if (document.documentElement.classList.contains('dark')) {
             localStorage.theme = 'dark';
         } else {
@@ -24,24 +23,23 @@ export default function Navbar() {
     }
 
     useEffect(() => {
-
-        window.addEventListener('scroll', () => {
-            if (scrollY > 50) {
-                navRef.current.classList.add('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
-                navLinkRef.current.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/30', "dark:bg-transparent");
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                navRef.current.classList.add('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-[#050505]', 'dark:shadow-white/20');
             } else {
-                navRef.current.classList.remove('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
-                navLinkRef.current.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/30', "dark:bg-transparent");
+                navRef.current.classList.remove('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-[#050505]', 'dark:shadow-white/20');
             }
-        })
+        };
 
-        // -------- light mode and dark mode -----------
-
+        window.addEventListener('scroll', handleScroll);
+        
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         } else {
             document.documentElement.classList.remove('dark')
         }
+
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [])
 
     return (
@@ -50,56 +48,94 @@ export default function Navbar() {
                 <img src="/assets/header-bg-color.png" alt="" className="w-full" />
             </div>
 
-            <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+            {/* Main Navbar Container */}
+            <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center z-50 transition-all duration-300">
+                
+                {/* Logo Section - Fixed Width for better centering */}
+                <div className="flex-shrink-0 min-w-[100px] md:min-w-[150px]">
+                    <a href="#top">
+                        <span className="text-4xl md:text-5xl font-bold cursor-pointer text-black dark:text-white tracking-tighter">
+                            MK<span className="text-[#FFB22C]">.</span>
+                        </span>
+                    </a>
+                </div>
 
-                <a href="https://prebuiltui.com?utm_source=eliana">
-                    <span className="text-5xl font-bold cursor-pointer mr-14 text-black dark:text-white">
-                        MK<span className="text-[#FFB22C]">.</span>
-                    </span>
-                    
-                </a>
+                {/* Desktop Links - Perfectly Centered via Flex-Grow */}
+                <div className="hidden md:flex flex-1 justify-center">
+                    <ul ref={navLinkRef} className="flex items-center gap-4 lg:gap-8 rounded-full px-8 lg:px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent whitespace-nowrap">
+                        <li><a className='hover:text-[#FFB22C] transition-colors' href="#top">Home</a></li>
+                        <li><a className='hover:text-[#FFB22C] transition-colors' href="#about">About me</a></li>
+                        <li><a className='hover:text-[#FFB22C] transition-colors' href="#skills">Skills</a></li>
+                        <li><a className='hover:text-[#FFB22C] transition-colors' href="#services">Services</a></li>
+                        <li><a className='hover:text-[#FFB22C] transition-colors' href="#work">My Work</a></li>
+                        <li><a className='hover:text-[#FFB22C] transition-colors' href="#experience">Experience</a></li>
+                    </ul>
+                </div>
 
-                <ul ref={navLinkRef} className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent ">
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#top">Home</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#about">About me</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#skills">Skills</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#services">Services</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#work">My Work</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#experience">Experience</a></li>
-                </ul>
-
-                <div className="flex items-center gap-4">
-                    <button onClick={toggleTheme}>
+                {/* Right Side Buttons - Fixed Width */}
+                <div className="flex items-center justify-end gap-3 md:gap-4 flex-shrink-0 min-w-[100px] md:min-w-[150px]">
+                    <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
                         <img src="/assets/moon_icon.png" alt="" className="w-5 dark:hidden" />
                         <img src="/assets/sun_icon.png" alt="" className="w-5 hidden dark:block" />
                     </button>
 
-                    <a href="#contact" className="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30">
+                    <a href="#contact" className="hidden lg:flex items-center gap-2 px-6 py-2 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full font-Ovo dark:border-white/30 transition-all text-black dark:text-white whitespace-nowrap">
                         Contact
                         <img src="/assets/arrow-icon.png" alt="" className="w-3 dark:hidden" />
                         <img src="/assets/arrow-icon-dark.png" alt="" className="w-3 hidden dark:block" />
                     </a>
 
-                    <button className="block md:hidden ml-3" onClick={openMenu}>
+                    <button className="block md:hidden p-2" onClick={openMenu}>
                         <img src="/assets/menu-black.png" alt="" className="w-6 dark:hidden" />
                         <img src="/assets/menu-white.png" alt="" className="w-6 hidden dark:block" />
                     </button>
-
                 </div>
-                {/* -- ----- mobile menu ------  -- */}
-                <ul ref={sideMenuRef} className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
 
-                    <div className="absolute right-6 top-6" onClick={closeMenu}>
-                        <img src="/assets/close-black.png" alt="" className="w-5 cursor-pointer dark:hidden" />
-                        <img src="/assets/close-white.png" alt="" className="w-5 cursor-pointer hidden dark:block" />
+                {/* -- ----- Mobile Side-Nav ------  -- */}
+                <div 
+                    ref={sideMenuRef}
+                    className="flex md:hidden flex-col fixed -right-64 top-0 bottom-0 w-64 z-[60] h-screen bg-[#ffffff] dark:bg-[#0b0b0b] transition-all duration-500 font-Ovo border-l border-gray-200 dark:border-white/10 shadow-2xl"
+                >
+                    <div className="flex justify-end p-6">
+                        <div className="p-2 rounded-full bg-gray-100 dark:bg-white/5 cursor-pointer hover:rotate-90 transition-transform duration-300" onClick={closeMenu}>
+                            <img src="/assets/close-black.png" alt="close" className="w-4 dark:hidden" />
+                            <img src="/assets/close-white.png" alt="close" className="w-4 hidden dark:block" />
+                        </div>
                     </div>
 
-                    <li><a href="#top" onClick={closeMenu}>Home</a></li>
-                    <li><a href="#about" onClick={closeMenu}>About me</a></li>
-                    <li><a href="#services" onClick={closeMenu}>Services</a></li>
-                    <li><a href="#work" onClick={closeMenu}>My Work</a></li>
-                    <li><a href="#contact" onClick={closeMenu}>Contact me</a></li>
-                </ul>
+                    <div className="px-10 mb-8">
+                        <span className="text-4xl font-bold text-black dark:text-white tracking-tighter">
+                            MK<span className="text-[#FFB22C]">.</span>
+                        </span>
+                        <div className="h-[2px] w-8 bg-[#FFB22C] mt-2"></div>
+                    </div>
+
+                    <nav className="flex-1 px-10 overflow-y-auto">
+                        <ul className="flex flex-col gap-2">
+                            {[
+                                { name: 'Home', href: '#top' },
+                                { name: 'About me', href: '#about' },
+                                { name: 'Skills', href: '#skills' },
+                                { name: 'Services', href: '#services' },
+                                { name: 'My Work', href: '#work' },
+                                { name: 'Experience', href: '#experience' },
+                                { name: 'Contact me', href: '#contact' }
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <a href={item.href} onClick={closeMenu} className="block py-3 text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-[#FFB22C] dark:hover:text-[#FFB22C] transition-all">
+                                        {item.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+
+                    <div className="p-10 border-t border-gray-100 dark:border-white/5">
+                        <p className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                            © 2026 Muskan Kamran
+                        </p>
+                    </div>
+                </div>
             </nav>
         </>
     )
