@@ -13,8 +13,8 @@ const ovo = Ovo({
 });
 
 export const metadata = {
-    title: "Eliana Portfolio - PrebuiltUI",
-    description: "Eliana Jade is a frontend web developer based in London, UK. I am a self-taught developer with 10 years of experience in multiple companies like Microsoft, Tesla and Apple.",
+    title: "Muskan Kamran - Full Stack Developer Portfolio",
+    description: "Muskan Kamran is a passionate Full Stack Developer and Tech Trainer based in Karachi, Pakistan. With expertise in the MERN stack, PHP, and Flutter, she has leading experience in building scalable, user-focused web and mobile solutions.",
 };
 
 export default function RootLayout({ children }) {
