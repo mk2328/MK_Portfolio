@@ -7,13 +7,10 @@ import { Download, ArrowRight } from 'lucide-react';
 
 export default function Header() {
     return (
-        // BG Color matches About section exactly
-        <section className="relative w-full h-screen h-[100dvh] flex items-center justify-center bg-[#fafafa] dark:bg-[#050505] overflow-hidden px-6 transition-colors duration-500">
+        <section className="relative w-full h-screen h-[100dvh] flex flex-col items-center justify-between bg-[#fafafa] dark:bg-[#050505] overflow-hidden px-6 transition-colors duration-500">
             
             {/* --- ENERGETIC BACKGROUND --- */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                
-                {/* Orb 1 - Color updated to Amber/Yellow */}
                 <motion.div 
                     animate={{ 
                         scale: [1, 1.4, 1],
@@ -22,10 +19,9 @@ export default function Header() {
                         y: ['-10%', '10%', '-10%']
                     }}
                     transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-[-15%] left-[-10%] w-[800px] h-[800px] bg-[#FFB22C]/10 dark:bg-[#FFB22C]/5 rounded-full blur-[130px] will-change-transform"
+                    className="absolute top-[-10%] left-[-10%] w-[500px] md:w-[800px] h-[500px] md:h-[800px] bg-[#FFB22C]/25 dark:bg-[#FFB22C]/10 rounded-full blur-[80px] md:blur-[130px] opacity-80 md:opacity-100 will-change-transform"
                 />
                 
-                {/* Orb 2 - Color updated to Amber (matching About) */}
                 <motion.div 
                     animate={{ 
                         scale: [1.2, 1, 1.2],
@@ -34,108 +30,106 @@ export default function Header() {
                         y: ['10%', '-10%', '10%']
                     }}
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-[-20%] right-[-10%] w-[900px] h-[900px] bg-amber-400/15 dark:bg-amber-900/5 rounded-full blur-[130px] will-change-transform"
+                    className="absolute bottom-[-10%] right-[-10%] w-[600px] md:w-[900px] h-[600px] md:h-[900px] bg-amber-400/30 dark:bg-amber-900/10 rounded-full blur-[80px] md:blur-[130px] opacity-80 md:opacity-100 will-change-transform"
                 />
                 
-                {/* --- ENHANCED GRID PATTERN --- */}
                 <div className="absolute inset-0 z-[1]">
                     <div 
-                        className="absolute inset-0 opacity-[0.2] dark:opacity-[0.25]" 
+                        className="absolute inset-0 opacity-[0.25] dark:opacity-[0.3]" 
                         style={{ 
-                            // Grid line color updated to Amber
-                            backgroundImage: `linear-gradient(rgba(255, 178, 44, 0.15) 1.5px, transparent 1.5px), 
-                                            linear-gradient(90deg, rgba(255, 178, 44, 0.15) 1.5px, transparent 1.5px)`, 
-                            backgroundSize: '45px 45px' 
+                            backgroundImage: `linear-gradient(rgba(255, 178, 44, 0.2) 1.5px, transparent 1.5px), 
+                                            linear-gradient(90deg, rgba(255, 178, 44, 0.2) 1.5px, transparent 1.5px)`, 
+                            backgroundSize: '40px 40px' 
                         }}
                     ></div>
                 </div>
                 
-                {/* Noise Texture Layer */}
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 dark:opacity-30 mix-blend-overlay z-[2]"></div>
-                
-                {/* Dark Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 dark:via-[#050505]/30 to-[#fafafa] dark:to-[#050505] z-[3]"></div>
+                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-25 dark:opacity-40 mix-blend-overlay z-[2]"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 dark:via-[#050505]/20 to-[#fafafa] dark:to-[#050505] z-[3]"></div>
             </div>
+
+            {/* Empty spacer to account for Navbar height at the top */}
+            <div className="h-16 md:h-20 w-full shrink-0" />
 
             {/* --- MAIN CONTENT --- */}
             <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative z-10 flex flex-col items-center text-center max-w-4xl mt-12"
+                /* flex-grow ensures this takes up available space, and justify-center centers content within that space */
+                className="relative z-10 flex flex-grow flex-col items-center justify-center text-center max-w-4xl w-full"
             >
-                {/* Profile Image with Theme Color Glow - Size increased for mobile */}
-                <div className="relative mb-6">
+                {/* Profile Image */}
+                <div className="relative mb-4 md:mb-6">
                     <motion.div 
-                        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
                         transition={{ duration: 4, repeat: Infinity }}
-                        className="absolute -inset-6 bg-[#FFB22C]/30 dark:bg-[#FFB22C]/20 rounded-full blur-3xl"
+                        className="absolute -inset-8 bg-[#FFB22C]/40 dark:bg-[#FFB22C]/25 rounded-full blur-3xl"
                     />
-                    <div className="relative p-1 bg-gradient-to-b from-black/10 dark:from-white/20 to-transparent rounded-full shadow-2xl">
+                    <div className="relative p-1 bg-gradient-to-b from-black/20 dark:from-white/30 to-transparent rounded-full shadow-[0_0_50px_rgba(255,178,44,0.2)]">
                         <img 
                             src="/assets/profile.jpeg" 
                             alt="Muskan Kamran" 
-                            // w-28 h-28 (Mobile) and w-32 h-32 (Desktop)
-                            className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-black/5 dark:border-white/10"
+                            className="w-24 h-24 md:w-40 md:h-40 rounded-full object-cover border-2 border-white/20 dark:border-white/10"
                         />
                     </div>
                 </div>
 
-                <motion.h3 className="flex items-center gap-2 text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-[0.3em]">
+                <motion.h3 className="flex items-center gap-2 text-[10px] md:text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2 md:mb-3 uppercase tracking-[0.25em]">
                     Hi! I'm <span className="text-black dark:text-white">Muskan Kamran</span>
-                    <motion.span 
-                        animate={{ rotate: [0, 20, 0] }} 
-                        transition={{ repeat: Infinity, duration: 1.5 }}
-                        className="inline-block"
-                    >👋</motion.span>
+                    <motion.span animate={{ rotate: [0, 20, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} className="inline-block">👋</motion.span>
                 </motion.h3>
 
-                <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight min-h-[1.2em]">
+                <h1 className="text-2xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-2 md:mb-4 tracking-tight min-h-[1.3em] px-2 leading-tight">
                     <Typewriter
                         words={['Full Stack Developer.','Founder @ AIXORA Academy.', 'MERN Stack Developer.', 'Software Engineer.']}
                         loop={0}
                         cursor
-                        cursorStyle='_'
+                        cursorStyle='|'
                         typeSpeed={70}
                         deleteSpeed={50}
                         delaySpeed={1500}
                     />
                 </h1>
 
-                <p className="max-w-2xl text-gray-600 dark:text-gray-400 text-sm md:text-lg mb-8 font-light px-4 leading-relaxed">
-                    Transforming complex ideas into <span className="text-black dark:text-white font-medium italic underline decoration-[#FFB22C]/60 underline-offset-4 decoration-[3px]">scalable digital realities</span>.
+                <p className="max-w-xl text-[12px] md:text-lg text-gray-600 dark:text-gray-400 mb-6 md:mb-8 font-normal px-6 leading-relaxed">
+                    Transforming complex ideas into <span className="text-black dark:text-white font-bold italic underline decoration-[#FFB22C] underline-offset-4 decoration-[3px]">scalable digital realities</span>.
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center gap-4">
+                <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 w-full sm:w-auto px-10 sm:px-0">
                     <motion.a 
-                        whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(255, 178, 44, 0.4)" }}
+                        whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(255, 178, 44, 0.5)" }}
                         whileTap={{ scale: 0.95 }}
                         href="#contact"
-                        className="px-8 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-bold flex items-center gap-3 text-sm transition-all shadow-lg"
+                        className="w-full sm:w-auto px-8 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-bold flex items-center justify-center gap-3 text-xs md:text-sm transition-all shadow-xl"
                     >
                         Start a Project <ArrowRight className="w-4 h-4" />
                     </motion.a>
 
                     <motion.a 
-                        whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 178, 44, 0.05)", borderColor: "#FFB22C" }}
+                        whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 178, 44, 0.08)", borderColor: "#FFB22C" }}
                         whileTap={{ scale: 0.95 }}
                         href="/assets/MK_ResumeUpdated.pdf" 
                         download
-                        className="px-8 py-3 border border-black/10 dark:border-white/20 text-black dark:text-white rounded-full font-semibold flex items-center gap-3 backdrop-blur-md text-sm transition-all"
+                        className="w-full sm:w-auto px-8 py-3 border-2 border-black/10 dark:border-white/20 text-black dark:text-white rounded-full font-bold flex items-center justify-center gap-3 backdrop-blur-md text-xs md:text-sm transition-all"
                     >
                         Download CV <Download className="w-4 h-4" />
                     </motion.a>
                 </div>
             </motion.div>
 
-            {/* Scroll Indicator - Updated color to Amber */}
-            <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 w-5 h-9 border-2 border-black/10 dark:border-white/10 rounded-full hidden sm:flex justify-center p-1.5"
-            >
-                <div className="w-1 h-2 bg-[#FFB22C] dark:bg-[#FFB22C] rounded-full" />
-            </motion.div>
+            {/* Scroll Indicator - Relative to bottom to ensure it stays in view */}
+            <div className="h-16 flex items-center justify-center shrink-0">
+                <div className="hidden sm:block">
+                    <motion.div 
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="w-5 h-9 border-2 border-black/20 dark:border-white/20 rounded-full flex justify-center p-1"
+                    >
+                        <div className="w-1 h-2 bg-[#FFB22C] rounded-full" />
+                    </motion.div>
+                </div>
+            </div>
         </section>
     );
 }
