@@ -13,9 +13,9 @@ export default function Contact() {
         setResult("");
 
         const formData = new FormData(event.target);
-        
+
         // Web3Forms Access Key
-        formData.append("access_key", "987302cd-1f4e-436f-8ff9-f14dc495a37d"); 
+        formData.append("access_key", "987302cd-1f4e-436f-8ff9-f14dc495a37d");
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
@@ -46,14 +46,14 @@ export default function Contact() {
 
     return (
         <div id="contact" className="w-full px-[8%] py-20 scroll-mt-20 relative overflow-hidden bg-white dark:bg-[#050505] transition-colors duration-500">
-            
+
             {/* Background Glows */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#FFB22C]/10 blur-[120px] -z-10 rounded-full"></div>
 
             <div className="max-w-6xl mx-auto">
                 {!isSuccess ? (
                     <div className="flex flex-col lg:flex-row gap-16 items-start">
-                        
+
                         {/* Left Side: Text */}
                         <div className="w-full lg:w-2/5">
                             <h4 className="text-[#FFB22C] font-Ovo mb-4">Contact Me</h4>
@@ -79,6 +79,10 @@ export default function Contact() {
                             <form onSubmit={onSubmit} className="space-y-8">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     <div className="relative">
+                                        {/* --- Customization Fields --- */}
+                                        <input type="hidden" name="from_name" value="Muskan Portfolio" />
+                                        <input type="hidden" name="subject" value="New Project Inquiry from Portfolio" />
+                                        <input type="hidden" name="replyto" value="email" />
                                         <input type="text" name="name" required placeholder=" " className="peer w-full bg-transparent border-b border-gray-300 dark:border-gray-700 py-2 outline-none focus:border-[#FFB22C] dark:focus:border-[#FFB22C] transition-all dark:text-white" />
                                         <label className="absolute left-0 top-2 text-gray-500 transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-[#FFB22C] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Full Name</label>
                                     </div>
@@ -93,8 +97,8 @@ export default function Contact() {
                                     <label className="absolute left-0 top-2 text-gray-500 transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-[#FFB22C] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">How can I help you?</label>
                                 </div>
 
-                                <button 
-                                    type="submit" 
+                                <button
+                                    type="submit"
                                     disabled={isSubmitting}
                                     className="group px-10 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-semibold hover:bg-[#FFB22C] dark:hover:bg-[#FFB22C] hover:text-black transition-all duration-300 disabled:opacity-50 flex items-center gap-2"
                                 >
@@ -113,7 +117,7 @@ export default function Contact() {
                         <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
                             Thanks for reaching out! I've received your email and will get back to you shortly.
                         </p>
-                        <button 
+                        <button
                             onClick={() => setIsSuccess(false)}
                             className="px-8 py-3 border border-gray-300 dark:border-white/20 rounded-full hover:bg-gray-50 dark:hover:bg-white/5 dark:text-white transition-all"
                         >
