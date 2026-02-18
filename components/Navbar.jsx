@@ -8,9 +8,13 @@ export default function Navbar() {
 
     const openMenu = () => {
         sideMenuRef.current.style.transform = 'translateX(-16rem)';
+        // Menu khulne par background scroll disable kar dein
+        document.body.style.overflow = 'hidden';
     }
     const closeMenu = () => {
         sideMenuRef.current.style.transform = 'translateX(16rem)';
+        // Menu band hone par scroll wapas enable kar dein
+        document.body.style.overflow = 'auto';
     }
     
     const toggleTheme = () => {
@@ -39,7 +43,10 @@ export default function Navbar() {
             document.documentElement.classList.remove('dark')
         }
 
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            document.body.style.overflow = 'auto'; // Cleanup
+        }
     }, [])
 
     return (
@@ -49,10 +56,10 @@ export default function Navbar() {
             </div>
 
             {/* Main Navbar Container */}
-            <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center z-50 transition-all duration-300">
+            <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-all duration-300">
                 
-                {/* Logo Section - Fixed Width for better centering */}
-                <div className="flex-shrink-0 min-w-[100px] md:min-w-[150px]">
+                {/* Logo Section */}
+                <div className="flex-shrink-0">
                     <a href="#top">
                         <span className="text-4xl md:text-5xl font-bold cursor-pointer text-black dark:text-white tracking-tighter">
                             MK<span className="text-[#FFB22C]">.</span>
@@ -60,8 +67,8 @@ export default function Navbar() {
                     </a>
                 </div>
 
-                {/* Desktop Links - Perfectly Centered via Flex-Grow */}
-                <div className="hidden md:flex flex-1 justify-center">
+                {/* Desktop Links */}
+                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
                     <ul ref={navLinkRef} className="flex items-center gap-4 lg:gap-8 rounded-full px-8 lg:px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent whitespace-nowrap">
                         <li><a className='hover:text-[#FFB22C] transition-colors' href="#top">Home</a></li>
                         <li><a className='hover:text-[#FFB22C] transition-colors' href="#about">About me</a></li>
@@ -72,8 +79,8 @@ export default function Navbar() {
                     </ul>
                 </div>
 
-                {/* Right Side Buttons - Fixed Width */}
-                <div className="flex items-center justify-end gap-3 md:gap-4 flex-shrink-0 min-w-[100px] md:min-w-[150px]">
+                {/* Right Side Buttons (Theme Toggle + Hamburger) */}
+                <div className="flex items-center gap-3 md:gap-4 ml-auto">
                     <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
                         <img src="/assets/moon_icon.png" alt="" className="w-5 dark:hidden" />
                         <img src="/assets/sun_icon.png" alt="" className="w-5 hidden dark:block" />
@@ -91,18 +98,20 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                {/* -- ----- Mobile Side-Nav ------  -- */}
+                {/* -- ----- Mobile Side-Nav (Fixed for 100vh) ------ -- */}
                 <div 
                     ref={sideMenuRef}
-                    className="flex md:hidden flex-col fixed -right-64 top-0 bottom-0 w-64 z-[60] h-screen bg-[#ffffff] dark:bg-[#0b0b0b] transition-all duration-500 font-Ovo border-l border-gray-200 dark:border-white/10 shadow-2xl"
+                    className="flex md:hidden flex-col fixed -right-64 top-0 bottom-0 w-64 z-[60] h-screen bg-white dark:bg-[#0b0b0b] transition-all duration-500 font-Ovo border-l border-gray-200 dark:border-white/10 shadow-2xl overflow-hidden"
                 >
+                    {/* Close Button Section */}
                     <div className="flex justify-end p-6">
-                        <div className="p-2 rounded-full bg-gray-100 dark:bg-white/5 cursor-pointer hover:rotate-90 transition-transform duration-300" onClick={closeMenu}>
+                        <div className="p-2 rounded-full bg-gray-100 dark:bg-white/5 cursor-pointer" onClick={closeMenu}>
                             <img src="/assets/close-black.png" alt="close" className="w-4 dark:hidden" />
                             <img src="/assets/close-white.png" alt="close" className="w-4 hidden dark:block" />
                         </div>
                     </div>
 
+                    {/* Logo in Sidebar */}
                     <div className="px-10 mb-8">
                         <span className="text-4xl font-bold text-black dark:text-white tracking-tighter">
                             MK<span className="text-[#FFB22C]">.</span>
@@ -110,7 +119,8 @@ export default function Navbar() {
                         <div className="h-[2px] w-8 bg-[#FFB22C] mt-2"></div>
                     </div>
 
-                    <nav className="flex-1 px-10 overflow-y-auto">
+                    {/* Navigation Links - Scrollable only if items exceed height */}
+                    <nav className="flex-1 px-10 overflow-y-auto custom-scrollbar">
                         <ul className="flex flex-col gap-2">
                             {[
                                 { name: 'Home', href: '#top' },
@@ -122,7 +132,7 @@ export default function Navbar() {
                                 { name: 'Contact me', href: '#contact' }
                             ].map((item) => (
                                 <li key={item.name}>
-                                    <a href={item.href} onClick={closeMenu} className="block py-3 text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-[#FFB22C] dark:hover:text-[#FFB22C] transition-all">
+                                    <a href={item.href} onClick={closeMenu} className="block py-3 text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-[#FFB22C] transition-all">
                                         {item.name}
                                     </a>
                                 </li>
@@ -130,7 +140,8 @@ export default function Navbar() {
                         </ul>
                     </nav>
 
-                    <div className="p-10 border-t border-gray-100 dark:border-white/5">
+                    {/* Footer in Sidebar */}
+                    <div className="p-10 border-t border-gray-100 dark:border-white/5 bg-white dark:bg-[#0b0b0b]">
                         <p className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500">
                             © 2026 Muskan Kamran
                         </p>
