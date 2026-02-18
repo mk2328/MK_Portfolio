@@ -60,29 +60,42 @@ export default function Header() {
                 className="relative z-10 flex flex-grow flex-col items-center justify-center text-center max-w-4xl w-full"
             >
                 {/* Profile Image */}
-                <div className="relative mb-4 md:mb-6">
+                <div className="relative mb-2 md:mb-3">
                     <motion.div
                         animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
                         transition={{ duration: 4, repeat: Infinity }}
                         /* Glow ko bhi thoda adjust kiya taake bade image ke peeche sahi lage */
                         className="absolute -inset-10 bg-[#FFB22C]/40 dark:bg-[#FFB22C]/25 rounded-full blur-3xl"
                     />
-                    <div className="relative p-1 bg-gradient-to-b from-black/20 dark:from-white/30 to-transparent rounded-full shadow-[0_0_50px_rgba(255,178,44,0.2)]">
-                        <img
-                            src="/assets/profile.jpeg"
-                            alt="Muskan Kamran"
-                            /* w-36 h-36 mobile ke liye (9rem) aur md:w-44 desktop ke liye (11rem) */
-                            className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-2 border-white/20 dark:border-white/10"
+                    <div className="relative mb-2 md:mb-2">
+                        <motion.div
+                            animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
+                            transition={{ duration: 4, repeat: Infinity }}
+                            className="absolute -inset-8 bg-[#FFB22C]/40 dark:bg-[#FFB22C]/25 rounded-full blur-3xl"
                         />
+                        <div className="relative p-1 bg-gradient-to-b from-black/20 dark:from-white/30 to-transparent rounded-full shadow-[0_0_50px_rgba(255,178,44,0.2)]">
+                            <img
+                                src="/assets/profile.jpeg"
+                                alt="Muskan Kamran"
+                                /* Mobile: w-36, Desktop: w-40 (160px) taake vertical space bache */
+                                className="w-40 h-40 md:w-40 md:h-40 rounded-full object-cover border-2 border-white/20 dark:border-white/10"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <motion.h3 className="flex items-center gap-2 text-[10px] md:text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2 md:mb-3 uppercase tracking-[0.25em]">
+                <motion.h3 className="flex items-center gap-2 text-[14px] sm:text-xs md:text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2 md:mb-3 uppercase tracking-[0.2em] md:tracking-[0.25em]">
                     Hi! I'm <span className="text-black dark:text-white">Muskan Kamran</span>
-                    <motion.span animate={{ rotate: [0, 20, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} className="inline-block">👋</motion.span>
+                    <motion.span
+                        animate={{ rotate: [0, 20, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5 }}
+                        className="inline-block"
+                    >
+                        👋
+                    </motion.span>
                 </motion.h3>
 
-                <h1 className="text-2xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-2 md:mb-4 tracking-tight min-h-[1.3em] px-2 leading-tight">
+                <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-gray-900 dark:text-white mb-2 md:mb-3 tracking-tight min-h-[1.2em] px-2 leading-tight">
                     <Typewriter
                         words={['Full Stack Developer.', 'Founder @ AIXORA Academy.', 'MERN Stack Developer.', 'Software Engineer.']}
                         loop={0}
@@ -94,7 +107,7 @@ export default function Header() {
                     />
                 </h1>
 
-                <p className="max-w-xl text-[12px] md:text-lg text-gray-600 dark:text-gray-400 mb-6 md:mb-8 font-normal px-6 leading-relaxed">
+                <p className="max-w-xl text-[14px] md:text-lg text-gray-600 dark:text-gray-400 mb-6 md:mb-8 font-normal px-6 leading-relaxed">
                     Transforming complex ideas into <span className="text-black dark:text-white font-bold italic underline decoration-[#FFB22C] underline-offset-4 decoration-[3px]">scalable digital realities</span>.
                 </p>
 
