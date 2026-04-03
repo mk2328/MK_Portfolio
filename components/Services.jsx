@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Code2, 
-    Smartphone, 
     Terminal, 
     Layout, 
     ShieldCheck, 
     Cpu,
+    Smartphone,
     ArrowUpRight 
 } from 'lucide-react';
 
@@ -19,54 +19,54 @@ export default function Services() {
         {
             id: 1,
             category: 'Development',
-            name: 'Full Stack Development',
-            icon: <Code2 className="w-7 h-7" />,
-            description: 'Scalable web applications using MERN Stack (MongoDB, Express, React, Node.js) and PHP-MySQL.',
-            skills: ['React', 'Node.js', 'PHP', 'REST APIs'],
+            name: 'Frontend Specialization',
+            icon: <Layout className="w-7 h-7" />,
+            description: 'Building high-performance, pixel-perfect web interfaces using React.js and TypeScript with a focus on component-based architecture.',
+            skills: ['React', 'TypeScript', 'Tailwind', 'Context API'],
         },
         {
             id: 2,
             category: 'Development',
-            name: 'Mobile App Solutions',
+            name: 'Mobile App Development',
             icon: <Smartphone className="w-7 h-7" />,
-            description: 'Cross-platform mobile applications developed with Flutter and Firebase integration.',
-            skills: ['Flutter', 'Dart', 'Firebase'],
+            description: 'Designing and developing cross-platform mobile applications using React Native, focusing on smooth performance and native-like UX.',
+            skills: ['React Native', 'Expo', 'Mobile UI', 'API Integration'],
         },
         {
             id: 3,
-            category: 'AI & Data',
-            name: 'AI & Data Intelligence',
-            icon: <Cpu className="w-7 h-7" />,
-            description: 'Climate prediction models and ML fundamentals using Python and Flask frameworks.',
-            skills: ['Python', 'Flask', 'Machine Learning'],
+            category: 'Development',
+            name: 'Full Stack Solutions',
+            icon: <Code2 className="w-7 h-7" />,
+            description: 'End-to-end web development using the MERN Stack and PHP/MySQL, ensuring scalable backends and robust database management.',
+            skills: ['MongoDB', 'Node.js', 'Express', 'PHP/MySQL'],
         },
         {
             id: 4,
-            category: 'Design',
-            name: 'UI/UX & Frontend',
-            icon: <Layout className="w-7 h-7" />,
-            description: 'Responsive, user-centric interfaces using Tailwind CSS, Bootstrap, and modern JavaScript.',
-            skills: ['Tailwind', 'Bootstrap', 'GSAP'],
+            category: 'AI & Data',
+            name: 'AI Automation & RAG',
+            icon: <Cpu className="w-7 h-7" />,
+            description: 'Developing LLM-driven autonomous agents and RAG architectures for automated data analysis and intelligent workflows.',
+            skills: ['Python', 'LangChain', 'OpenAI API', 'Automation'],
         },
         {
             id: 5,
             category: 'Other',
-            name: 'QA & Cyber Security',
+            name: 'QA & Technical Audit',
             icon: <ShieldCheck className="w-7 h-7" />,
-            description: 'Manual and basic automation testing with a focus on web security and IT automation.',
-            skills: ['Manual Testing', 'CyberSecurity', 'Git'],
+            description: 'Implementing manual and automation testing protocols to ensure software quality and robust system security.',
+            skills: ['Automation Testing', 'SDLC', 'Jira', 'Postman'],
         },
         {
             id: 6,
             category: 'Other',
-            name: 'Technical Training',
+            name: 'AI Training & Mentorship',
             icon: <Terminal className="w-7 h-7" />,
-            description: 'Founder of AIXORA Academy, mentoring students in modern web and database concepts.',
-            skills: ['Mentoring', 'Project Lead', 'Agile/Jira'],
+            description: 'Founder of AIXORA Academy, delivering specialized training in modern web stacks and AI-native development workflows.',
+            skills: ['Mentoring', 'Curriculum Design', 'Public Speaking'],
         }
     ];
 
-    const categories = ['All', 'Development', 'Design', 'AI & Data', 'Other'];
+    const categories = ['All', 'Development', 'AI & Data', 'Other'];
 
     const filteredServices = activeTab === 'All' 
         ? serviceData 
@@ -75,7 +75,7 @@ export default function Services() {
     return (
         <section id="services" className="relative w-full px-6 md:px-[10%] py-24 bg-white dark:bg-[#050505] transition-colors duration-500 overflow-hidden">
             
-            {/* Background Accent - Purple se Yellow/Amber kiya gaya hai */}
+            {/* Background Accent */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFB22C]/10 dark:bg-[#FFB22C]/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="relative z-10 max-w-7xl mx-auto">
@@ -86,23 +86,23 @@ export default function Services() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h4 className="text-[#FFB22C] font-bold tracking-[0.2em] uppercase text-sm mb-3">Professional Expertise</h4>
-                    <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 font-Ovo tracking-tight">Technical Services</h2>
-                    <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 text-lg font-Ovo">
-                        Transforming complex ideas into <span className="text-[#FFB22C] font-bold">digital realities</span> through modern tech stacks and leadership.
+                    <h4 className="text-[#FFB22C] font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs mb-3">Professional Expertise</h4>
+                    <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">Technical <span className="text-[#FFB22C]">Services.</span></h2>
+                    <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 text-base md:text-lg">
+                        Transforming complex requirements into <span className="text-[#FFB22C] font-bold">scalable solutions</span> through modern frameworks and AI-native workflows.
                     </p>
                 </motion.div>
 
                 {/* Filter Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 mb-16">
+                <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-16">
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActiveTab(cat)}
-                            className={`px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
+                            className={`px-6 py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 border ${
                                 activeTab === cat 
-                                ? 'bg-[#FFB22C] border-[#FFB22C] text-black shadow-xl shadow-yellow-500/30' 
-                                : 'bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:border-[#FFB22C] hover:text-[#FFB22C]'
+                                ? 'bg-[#FFB22C] border-[#FFB22C] text-black shadow-lg shadow-yellow-500/20' 
+                                : 'bg-white dark:bg-white/5 border-gray-100 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:border-[#FFB22C]/40 hover:text-[#FFB22C]'
                             }`}
                         >
                             {cat}
@@ -111,7 +111,7 @@ export default function Services() {
                 </div>
 
                 {/* Services Grid */}
-                <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                     <AnimatePresence mode='popLayout'>
                         {filteredServices.map((service) => (
                             <motion.div
@@ -120,22 +120,21 @@ export default function Services() {
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
-                                whileHover={{ y: -10 }}
-                                className="group relative overflow-hidden p-8 bg-white dark:bg-white/[0.03] backdrop-blur-2xl border border-gray-100 dark:border-white/10 rounded-[2.5rem] transition-all duration-500 hover:border-[#FFB22C]/40 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] dark:shadow-none hover:shadow-[0_20px_50px_-20px_rgba(255,178,44,0.15)]"
+                                whileHover={{ y: -8 }}
+                                className="group relative overflow-hidden p-6 md:p-8 bg-white dark:bg-white/[0.02] backdrop-blur-3xl border border-gray-100 dark:border-white/5 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-500 hover:border-[#FFB22C]/30 shadow-xl shadow-black/[0.01]"
                             >
-                                {/* Premium Corner Accent */}
                                 <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0">
                                     <ArrowUpRight className="text-[#FFB22C] w-6 h-6" />
                                 </div>
 
-                                <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
-                                    {/* Icon Container with Glow */}
-                                    <div className="relative flex-shrink-0 w-20 h-20 flex items-center justify-center bg-gray-50 dark:bg-white/10 rounded-3xl border border-gray-100 dark:border-white/10 text-[#FFB22C] shadow-[inset_0_2px_10px_rgba(0,0,0,0.02)] group-hover:scale-110 group-hover:rotate-[10deg] transition-all duration-500">
+                                <div className="relative z-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
+                                    {/* Icon Container */}
+                                    <div className="relative flex-shrink-0 w-16 h-16 flex items-center justify-center bg-gray-50 dark:bg-white/5 rounded-2xl md:rounded-3xl border border-gray-100 dark:border-white/10 text-[#FFB22C] group-hover:bg-[#FFB22C]/10 transition-all duration-500">
                                         {service.icon}
                                     </div>
                                     
                                     <div className="flex-grow">
-                                        <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-2 tracking-tight">{service.name}</h3>
+                                        <h3 className="text-xl md:text-2xl font-black text-gray-900 dark:text-white mb-3 tracking-tight group-hover:text-[#FFB22C] transition-colors">{service.name}</h3>
                                         <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-6 max-w-md font-medium">
                                             {service.description}
                                         </p>
@@ -143,16 +142,13 @@ export default function Services() {
                                         {/* Skill Tags */}
                                         <div className="flex flex-wrap gap-2">
                                             {service.skills.map(skill => (
-                                                <span key={skill} className="text-[10px] font-bold px-3 py-1 bg-gray-100/80 dark:bg-white/5 text-gray-500 dark:text-gray-500 rounded-lg group-hover:bg-[#FFB22C]/10 group-hover:text-[#FFB22C] transition-all duration-300 border border-transparent group-hover:border-[#FFB22C]/20">
+                                                <span key={skill} className="text-[9px] md:text-[10px] font-bold px-3 py-1.5 bg-gray-50 dark:bg-white/5 text-gray-400 dark:text-gray-500 rounded-lg border border-transparent group-hover:border-[#FFB22C]/20 group-hover:text-[#FFB22C] transition-all">
                                                     {skill}
                                                 </span>
                                             ))}
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* Bottom Glow Line */}
-                                <div className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-transparent via-[#FFB22C] to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             </motion.div>
                         ))}
                     </AnimatePresence>

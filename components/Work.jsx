@@ -4,18 +4,18 @@ import React from 'react'
 export default function Work() {
     const ongoingProjects = [
         {
-            title: 'MedScribeAI (FYP)',
-            category: 'React Native + PostgreSQL',
+            title: 'MedScribe AI (FYP)',
+            category: 'React Native + Python (LLMs)',
             status: 'Currently Building',
-            description: 'AI-driven medical transcription and health management mobile app focusing on clinical efficiency.',
+            description: 'An AI-assisted hospital system project focusing on automated medical transcription and SOAP note generation for clinical efficiency.',
             link: 'https://github.com/mk2328',
             bgImage: '/assets/work-1.png'
         },
         {
-            title: 'Virtual Physical Therapy',
-            category: 'MERN Stack + Motion Tracking',
-            status: 'Client Project',
-            description: 'A professional platform for remote physical therapy and recovery monitoring with real-time feedback.',
+            title: 'Smart-Physio Assistant',
+            category: 'React Native + AI Motion Tracking',
+            status: 'In Progress',
+            description: 'Developing a mobile application for real-time motion tracking in physiotherapy using standardized assessment tools for clinical use.',
             link: 'https://github.com/mk2328',
             bgImage: '/assets/work-2.png'
         }
@@ -23,11 +23,27 @@ export default function Work() {
 
     const completedProjects = [
         {
+            title: 'Generative AI Job Simulation (BCG X)',
+            date: 'APRIL 2026',
+            role: 'Junior Data Scientist',
+            tech: 'Python, LLMs, RAG Architecture',
+            description: 'Engineered a RAG-based solution for automated financial data analysis and performance metric extraction.',
+            link: 'https://github.com/mk2328'
+        },
+        {
+            title: 'The Career Architect',
+            date: 'MARCH 2026',
+            role: 'Lead Developer',
+            tech: 'Python, OpenAI API, LangChain',
+            description: 'Developed an autonomous agent for personalized career roadmap generation and resume-to-job matching.',
+            link: 'https://github.com/mk2328'
+        },
+        {
             title: 'MERN Fitness Tracking System',
             date: 'JUNE 2025',
             role: 'Lead Developer',
             tech: 'MERN Stack, Gemini API',
-            description: 'AI-integrated system with real-time health tracking.',
+            description: 'AI-integrated system with real-time health tracking and personalized fitness insights.',
             link: 'https://github.com/mk2328'
         },
         {
@@ -35,7 +51,7 @@ export default function Work() {
             date: 'JULY 2025',
             role: 'Project Lead',
             tech: 'Python, Flask, MongoDB',
-            description: 'AI-based climate forecasting and data visualization.',
+            description: 'AI-based climate forecasting and data visualization using machine learning fundamentals.',
             link: 'https://github.com/mk2328'
         },
         {
@@ -43,7 +59,7 @@ export default function Work() {
             date: 'MARCH 2024',
             role: 'Main Developer',
             tech: 'MERN Stack, Redux',
-            description: 'Scalable booking solution with secure payments.',
+            description: 'Scalable booking solution with secure payments and real-time availability management.',
             link: 'https://github.com/mk2328'
         },
         {
@@ -51,15 +67,7 @@ export default function Work() {
             date: 'JANUARY 2024',
             role: 'Lead Developer (Client)',
             tech: 'PHP, MySQL, SMTP',
-            description: 'Professional e-store with automated email notifications.',
-            link: 'https://github.com/mk2328'
-        },
-        {
-            title: 'Citi Guide & WeChat App',
-            date: 'OCTOBER 2024',
-            role: 'Mobile App Developer',
-            tech: 'Flutter, Firebase',
-            description: 'Location-based social and urban navigation app.',
+            description: 'Professional e-store with automated email notifications and secure checkout process.',
             link: 'https://github.com/mk2328'
         },
         {
@@ -67,7 +75,7 @@ export default function Work() {
             date: 'JULY 2024',
             role: 'Frontend Developer',
             tech: 'React, Tailwind, GSAP',
-            description: 'High-performance landing pages for cosmetics and tech events.',
+            description: 'High-performance landing pages for international cosmetics and university tech symposiums.',
             link: 'https://github.com/mk2328'
         }
     ];
@@ -77,20 +85,17 @@ export default function Work() {
             <h4 className="text-center mb-2 text-lg font-Ovo text-[#FFB22C]">Portfolio</h4>
             <h2 className="text-center text-5xl font-Ovo dark:text-white">Featured Projects</h2>
 
-            {/* --- Ongoing Projects (Optimized Visibility & Size) --- */}
+            {/* --- Ongoing Projects (UI Intact as requested) --- */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
                 {ongoingProjects.map((project, index) => (
                     <div key={index} className="relative group rounded-[2rem] overflow-hidden h-[380px] border border-gray-200 dark:border-white/10 shadow-2xl transition-all duration-700">
-                        {/* Background Image */}
                         <div 
                             className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000" 
                             style={{ backgroundImage: `url(${project.bgImage})` }}
                         ></div>
                         
-                        {/* Perfect Text Visibility Overlay (Darker at bottom, slight tint at top) */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10"></div>
                         
-                        {/* Status Badge */}
                         <div className="absolute top-6 left-6 flex items-center gap-2.5 px-4 py-1.5 bg-black/50 backdrop-blur-md border border-white/20 rounded-full z-10">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFB22C] opacity-75"></span>
@@ -99,7 +104,6 @@ export default function Work() {
                             <span className="text-white text-[9px] font-bold uppercase tracking-widest">{project.status}</span>
                         </div>
 
-                        {/* Content Container */}
                         <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
                             <span className="text-[#FFB22C] text-[10px] font-bold mb-2 tracking-[0.3em] uppercase drop-shadow-md">
                                 {project.category}
@@ -120,9 +124,9 @@ export default function Work() {
                 ))}
             </div>
 
-            {/* --- Completed Works (List Style - Kept the same) --- */}
+            {/* --- Completed Works (Optimized List) --- */}
             <div className="mt-28">
-                <div className="flex items-center justify-between mb-12 border-b border-gray-200 dark:border-white/10 pb-0">
+                <div className="flex items-center justify-between mb-12 border-b border-gray-200 dark:border-white/10 pb-4">
                     <h3 className="text-2xl font-semibold dark:text-white">Past Projects</h3>
                     <p className="text-sm text-gray-400 font-Ovo">{completedProjects.length} Projects Total</p>
                 </div>
@@ -157,7 +161,6 @@ export default function Work() {
                 </div>
             </div>
 
-            {/* GitHub Button */}
             <div className="mt-20 flex justify-center">
                 <a href="https://github.com/mk2328" target="_blank" className="px-12 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-semibold hover:scale-105 transition-all shadow-xl">
                     Full GitHub Archive
