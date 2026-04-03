@@ -97,7 +97,7 @@ export default function Header() {
 
                 <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-gray-900 dark:text-white mb-2 md:mb-3 tracking-tight min-h-[1.2em] px-2 leading-tight">
                     <Typewriter
-                        words={['Full Stack Developer.', 'Founder @ AIXORA Academy.', 'MERN Stack Developer.', 'Software Engineer.']}
+                        words={['Full Stack Developer.', 'Founder @ AIXORA Academy.', 'MERN Stack Developer.', 'AI Engineer.']}
                         loop={0}
                         cursor
                         cursorStyle='|'
@@ -124,7 +124,7 @@ export default function Header() {
                     <motion.a
                         whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 178, 44, 0.08)", borderColor: "#FFB22C" }}
                         whileTap={{ scale: 0.95 }}
-                        href="/assets/MK_ResumeUpdated.pdf"
+                        href="/assets/MuskanKamranResumeC.pdf"
                         download
                         className="w-full sm:w-auto px-8 py-3 border-2 border-black/10 dark:border-white/20 text-black dark:text-white rounded-full font-bold flex items-center justify-center gap-3 backdrop-blur-md text-xs md:text-sm transition-all"
                     >

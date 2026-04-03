@@ -8,20 +8,54 @@ export default function About() {
     const shouldReduceMotion = useReducedMotion();
 
     const tools = [
-        { name: 'VS Code', icon: '/assets/vscode.png' },
-        { name: 'Firebase', icon: '/assets/firebase.png' },
-        { name: 'MongoDB', icon: '/assets/mongodb.png' },
-        { name: 'Figma', icon: '/assets/figma.png' },
-        { name: 'Git', icon: '/assets/git.png' },
+        {
+            name: 'TypeScript',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'
+        },
+        {
+            name: 'Next.js',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg'
+        },
+        {
+            name: 'React Native',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+        },
         {
             name: 'Node.js',
             icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'
         },
         {
-            name: 'React',
-            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+            name: 'Express',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg'
         },
-        { name: 'Python', icon: '/assets/python.png' },
+        {
+            name: 'MongoDB',
+            icon: '/assets/mongodb.png'
+        },
+        {
+            name: 'Python (AI)',
+            icon: '/assets/python.png'
+        },
+        {
+            name: 'OpenAI/LLM',
+            icon: 'https://static.cdnlogo.com/logos/o/38/openai.svg' // Standard AI Icon
+        },
+        {
+            name: 'Postman',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg'
+        },
+        {
+            name: 'Jira',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg'
+        },
+        {
+            name: 'Git',
+            icon: '/assets/git.png'
+        },
+        {
+            name: 'Figma',
+            icon: '/assets/figma.png'
+        },
     ];
 
     return (
@@ -63,39 +97,49 @@ export default function About() {
                             className="bg-white/70 dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 p-8 rounded-[2.5rem] backdrop-blur-md shadow-xl shadow-amber-500/5"
                         >
                             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100 leading-snug">
-                                Transforming complex ideas into <br className="hidden md:block" />
-                                <span className="italic font-black text-[#FFB22C]">Scalable Realities.</span>
+                                Bridging MERN Stack Excellence with <br className="hidden md:block" />
+                                <span className="italic font-black text-[#FFB22C]">Autonomous AI Innovation.</span>
                             </h3>
                             <p className="text-gray-700 dark:text-gray-400 text-lg leading-relaxed font-normal">
-                                I am <span className="text-black dark:text-white font-bold">Muskan Kamran</span>, a Full Stack Developer and the Founder of AIXORA Academy. Currently pursuing Software Engineering with a <span className="font-bold text-black dark:text-white underline decoration-[#FFB22C] decoration-[3px] underline-offset-4">3.95 CGPA</span>, I bridge the gap between robust backend logic and elegant frontend design.
+                                I am <span className="text-black dark:text-white font-bold">Muskan Kamran</span>, a <span className="text-black dark:text-white font-bold">Full Stack Developer Intern at 10Pearls</span> and the Founder of <span className="text-[#FFB22C] font-bold">AIXORA Academy</span>. Currently in my final year of Software Engineering with a <span className="font-bold text-black dark:text-white underline decoration-[#FFB22C] decoration-[3px] underline-offset-4">3.95 CGPA</span>, I specialize in building <span className="font-semibold text-black dark:text-white">RAG architectures</span> and type-safe <span className="font-semibold text-black dark:text-white">React & TypeScript</span> applications. My passion lies in engineering AI-native workflows that automate complex decision-making processes.
                             </p>
                         </motion.div>
 
-                        {/* Bento Grid for Stats */}
+                        {/* Bento Grid: Professional & Academic Focus */}
                         <div className="grid md:grid-cols-2 gap-4">
+
+                            {/* Industry Focus & Simulations */}
                             <motion.div whileHover={{ y: -5 }} className="p-6 rounded-3xl bg-white dark:bg-[#FFB22C]/5 border border-gray-200 dark:border-[#FFB22C]/10 flex flex-col gap-4 shadow-lg shadow-amber-500/5">
                                 <div className="w-12 h-12 rounded-2xl bg-[#FFB22C]/10 dark:bg-[#111] flex items-center justify-center shadow-inner">
-                                    <Terminal className="w-6 h-6 text-[#FFB22C]" />
+                                    <Rocket className="w-6 h-6 text-[#FFB22C]" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-gray-900 dark:text-white">Technical Mastery</h4>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">MERN Stack, PHP-MySQL, & Flutter Development</p>
+                                    <h4 className="font-bold text-gray-900 dark:text-white uppercase text-xs tracking-wider mb-2">Professional Path</h4>
+                                    <p className="text-[12px] text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+                                        <span className="text-black dark:text-white font-bold">• MERN Stack Intern</span> at 10Pearls <br />
+                                        <span className="text-black dark:text-white font-bold">• GenAI Simulation</span> - BCG X <br />
+                                        <span className="text-black dark:text-white font-bold">• Data Science Sim</span> - Datacom
+                                    </p>
                                 </div>
                             </motion.div>
 
+                            {/* Detailed Education Section */}
                             <motion.div whileHover={{ y: -5 }} className="p-6 rounded-3xl bg-white dark:bg-amber-500/5 border border-gray-200 dark:border-amber-500/10 flex flex-col gap-4 shadow-lg shadow-amber-500/5">
                                 <div className="w-12 h-12 rounded-2xl bg-amber-50/50 dark:bg-[#111] flex items-center justify-center shadow-inner">
                                     <GraduationCap className="w-6 h-6 text-[#FFB22C]" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-gray-900 dark:text-white">Academic Excellence</h4>
-                                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
-                                        BS Software Engineering (3.95 CGPA) <br />
-                                        & <span className="text-[#FFB22C] font-bold">ADSE Graduate from Aptech</span>
+                                    <h4 className="font-bold text-gray-900 dark:text-white uppercase text-xs tracking-wider mb-2">Academic Foundation</h4>
+                                    <p className="text-[11px] text-gray-600 dark:text-gray-400 leading-tight font-medium">
+                                        <span className="text-black dark:text-white font-bold">BS Software Engineering</span> <br />
+                                        Jinnah University (3.95 CGPA) <br />
+                                        <span className="text-black dark:text-white font-bold">ADSE Graduate</span> <br />
+                                        Aptech Education (84%)
                                     </p>
                                 </div>
                             </motion.div>
 
+                            {/* Leadership Card - Full Width */}
                             <motion.div
                                 whileHover={{ y: -5 }}
                                 className="md:col-span-2 p-6 rounded-3xl bg-white dark:bg-[#FFB22C]/5 border border-gray-200 dark:border-[#FFB22C]/10 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 shadow-lg shadow-amber-500/5 transition-all duration-300 hover:border-[#FFB22C]/30"
@@ -103,15 +147,16 @@ export default function About() {
                                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#FFB22C]/10 dark:bg-[#111] flex flex-shrink-0 items-center justify-center shadow-inner">
                                     <Globe className="w-6 h-6 md:w-7 md:h-7 text-[#FFB22C]" />
                                 </div>
-                                <div>
+                                <div className="flex-1">
                                     <h4 className="font-bold text-gray-900 dark:text-white text-lg">Leadership & Impact</h4>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                                        Founder @ <span className="text-[#FFB22C] font-bold">AIXORA</span> & JUW Chapter Lead <span className="text-[#FFB22C] font-bold">GDGOC</span>
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+                                        As the <span className="text-[#FFB22C] font-bold">Chapter Lead for GDGoC JUW</span>, I manage core teams and drive technical growth. Additionally, serving as the <span className="text-black dark:text-white font-bold">Event Director for JTECH 2026</span>, I oversee large-scale symposium operations and technical tracks.
                                     </p>
                                 </div>
                             </motion.div>
                         </div>
                     </div>
+
 
                     {/* Right Column: Visuals & Tools */}
                     <div className="lg:col-span-5 space-y-8">
