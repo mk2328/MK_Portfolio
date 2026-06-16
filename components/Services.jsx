@@ -21,24 +21,24 @@ export default function Services() {
             category: 'Development',
             name: 'Full Stack Development',
             icon: <Code2 className="w-7 h-7" />,
-            description: 'Scalable web applications using MERN Stack (MongoDB, Express, React, Node.js) and PHP-MySQL.',
-            skills: ['React', 'Node.js', 'PHP', 'REST APIs'],
+            description: 'Scalable web applications using MERN Stack (MongoDB, Express, React, Node.js), Next.js, TypeScript, and PHP-MySQL.',
+            skills: ['React', 'Next.js', 'Node.js', 'TypeScript', 'PHP', 'REST APIs'],
         },
         {
             id: 2,
             category: 'Development',
             name: 'Mobile App Solutions',
             icon: <Smartphone className="w-7 h-7" />,
-            description: 'Cross-platform mobile applications developed with Flutter and Firebase integration.',
-            skills: ['Flutter', 'Dart', 'Firebase'],
+            description: 'Cross-platform mobile applications developed with Flutter and React Native, with Firebase integration.',
+            skills: ['Flutter', 'React Native', 'Firebase'],
         },
         {
             id: 3,
             category: 'AI & Data',
             name: 'AI & Data Intelligence',
             icon: <Cpu className="w-7 h-7" />,
-            description: 'Climate prediction models and ML fundamentals using Python and Flask frameworks.',
-            skills: ['Python', 'Flask', 'Machine Learning'],
+            description: 'RAG pipelines, LLM-based systems, AI Agents, and ML models using Python, OpenAI API, and workflow automation with n8n.',
+            skills: ['Python', 'RAG Pipelines', 'OpenAI API', 'Machine Learning', 'n8n', 'NLP'],
         },
         {
             id: 4,
@@ -61,8 +61,8 @@ export default function Services() {
             category: 'Other',
             name: 'Technical Training',
             icon: <Terminal className="w-7 h-7" />,
-            description: 'Founder of AIXORA Academy, mentoring students in modern web and database concepts.',
-            skills: ['Mentoring', 'Project Lead', 'Agile/Jira'],
+            description: 'Founder of AIXORA Academy, mentoring students in AI Agents, LLM-based systems, and latest AI/ML technologies.',
+            skills: ['AI Agents', 'LLM Systems', 'Mentoring', 'Project Lead', 'Agile/Scrum'],
         }
     ];
 
@@ -75,7 +75,7 @@ export default function Services() {
     return (
         <section id="services" className="relative w-full px-6 md:px-[10%] py-24 bg-white dark:bg-[#050505] transition-colors duration-500 overflow-hidden">
             
-            {/* Background Accent - Purple se Yellow/Amber kiya gaya hai */}
+            {/* Background Accent */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFB22C]/10 dark:bg-[#FFB22C]/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="relative z-10 max-w-7xl mx-auto">

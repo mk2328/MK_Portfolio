@@ -18,16 +18,40 @@ export default function Work() {
             description: 'A professional platform for remote physical therapy and recovery monitoring with real-time feedback.',
             link: 'https://github.com/mk2328',
             bgImage: '/assets/work-2.png'
-        }
+        },
     ];
 
     const completedProjects = [
+        {
+            title: 'SAYA 2.0 — AI Wellbeing Automation',
+            date: '2025',
+            role: 'AI Automation Developer',
+            tech: 'n8n, Groq AI, Google Sheets, Telegram Bot API',
+            description: 'Scheduled pipeline ingesting Spotify, YouTube & Gmail data through multi-agent Groq AI to detect stress patterns and trigger automated friend alerts.',
+            link: 'https://github.com/mk2328'
+        },
+        {
+            title: 'AI Legal Document Assistant',
+            date: '2025',
+            role: 'Lead Developer',
+            tech: 'Python, OpenAI API, FAISS, RAG, NLP',
+            description: 'RAG-based legal document assistant using semantic search for context-aware information retrieval.',
+            link: 'https://github.com/mk2328'
+        },
+        {
+            title: 'The Career Architect — AI Agent',
+            date: '2025',
+            role: 'AI Developer',
+            tech: 'Python, OpenAI API, Prompt Engineering',
+            description: 'AI-powered career guidance agent with memory for personalized recommendations.',
+            link: 'https://github.com/mk2328'
+        },
         {
             title: 'MERN Fitness Tracking System',
             date: 'JUNE 2025',
             role: 'Lead Developer',
             tech: 'MERN Stack, Gemini API',
-            description: 'AI-integrated system with real-time health tracking.',
+            description: 'AI-integrated fitness system with real-time health tracking and BMI-based personalized suggestions.',
             link: 'https://github.com/mk2328'
         },
         {
@@ -36,6 +60,22 @@ export default function Work() {
             role: 'Project Lead',
             tech: 'Python, Flask, MongoDB',
             description: 'AI-based climate forecasting and data visualization.',
+            link: 'https://github.com/mk2328'
+        },
+        {
+            title: 'TypeScript Real-Time Feedback Dashboard',
+            date: '2025',
+            role: 'Full Stack Developer',
+            tech: 'React, TypeScript, Node.js',
+            description: 'Type-safe real-time data visualization dashboard with live feedback tracking.',
+            link: 'https://github.com/mk2328'
+        },
+        {
+            title: 'CareConnect App',
+            date: '2024',
+            role: 'Mobile App Developer',
+            tech: 'Flutter, Firebase',
+            description: 'Healthcare app for patient appointment booking and pharmacy listing system.',
             link: 'https://github.com/mk2328'
         },
         {
@@ -51,7 +91,15 @@ export default function Work() {
             date: 'JANUARY 2024',
             role: 'Lead Developer (Client)',
             tech: 'PHP, MySQL, SMTP',
-            description: 'Professional e-store with automated email notifications.',
+            description: 'Professional e-store with product listing, cart, orders, admin panel and automated email notifications.',
+            link: 'https://github.com/mk2328'
+        },
+        {
+            title: 'Eyewear Store Website',
+            date: '2024',
+            role: 'Lead Developer (Client)',
+            tech: 'PHP, MySQL',
+            description: 'E-commerce eyewear store with product listing and cart functionality.',
             link: 'https://github.com/mk2328'
         },
         {
@@ -69,7 +117,23 @@ export default function Work() {
             tech: 'React, Tailwind, GSAP',
             description: 'High-performance landing pages for cosmetics and tech events.',
             link: 'https://github.com/mk2328'
-        }
+        },
+        {
+            title: 'Weather Prediction System',
+            date: '2024',
+            role: 'ML Developer',
+            tech: 'Python, Machine Learning',
+            description: 'ML pipeline using regression and classification with data preprocessing and evaluation.',
+            link: 'https://github.com/mk2328'
+        },
+        {
+            title: 'Student Dropout Prediction System',
+            date: '2024',
+            role: 'ML Developer',
+            tech: 'Python, Machine Learning',
+            description: 'Classification model to identify student dropout risk factors.',
+            link: 'https://github.com/mk2328'
+        },
     ];
 
     return (
@@ -77,20 +141,16 @@ export default function Work() {
             <h4 className="text-center mb-2 text-lg font-Ovo text-[#FFB22C]">Portfolio</h4>
             <h2 className="text-center text-5xl font-Ovo dark:text-white">Featured Projects</h2>
 
-            {/* --- Ongoing Projects (Optimized Visibility & Size) --- */}
+            {/* --- Ongoing Projects --- */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
                 {ongoingProjects.map((project, index) => (
                     <div key={index} className="relative group rounded-[2rem] overflow-hidden h-[380px] border border-gray-200 dark:border-white/10 shadow-2xl transition-all duration-700">
-                        {/* Background Image */}
-                        <div 
-                            className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000" 
+                        <div
+                            className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"
                             style={{ backgroundImage: `url(${project.bgImage})` }}
                         ></div>
-                        
-                        {/* Perfect Text Visibility Overlay (Darker at bottom, slight tint at top) */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10"></div>
-                        
-                        {/* Status Badge */}
+
                         <div className="absolute top-6 left-6 flex items-center gap-2.5 px-4 py-1.5 bg-black/50 backdrop-blur-md border border-white/20 rounded-full z-10">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFB22C] opacity-75"></span>
@@ -99,7 +159,6 @@ export default function Work() {
                             <span className="text-white text-[9px] font-bold uppercase tracking-widest">{project.status}</span>
                         </div>
 
-                        {/* Content Container */}
                         <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
                             <span className="text-[#FFB22C] text-[10px] font-bold mb-2 tracking-[0.3em] uppercase drop-shadow-md">
                                 {project.category}
@@ -110,9 +169,9 @@ export default function Work() {
                             <p className="text-gray-200 text-xs mb-6 max-w-sm leading-relaxed font-Ovo drop-shadow-md">
                                 {project.description}
                             </p>
-                            
+
                             <a href={project.link} target="_blank" className="w-fit flex items-center gap-3 bg-white text-black px-6 py-2.5 rounded-full font-bold text-xs hover:bg-[#FFB22C] transition-all group/btn shadow-lg">
-                                Source Code 
+                                Source Code
                                 <img src="/assets/send-icon.png" alt="" className="w-3.5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                             </a>
                         </div>
@@ -120,7 +179,7 @@ export default function Work() {
                 ))}
             </div>
 
-            {/* --- Completed Works (List Style - Kept the same) --- */}
+            {/* --- Completed Works --- */}
             <div className="mt-28">
                 <div className="flex items-center justify-between mb-12 border-b border-gray-200 dark:border-white/10 pb-0">
                     <h3 className="text-2xl font-semibold dark:text-white">Past Projects</h3>

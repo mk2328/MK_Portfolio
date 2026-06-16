@@ -8,10 +8,8 @@ export default function About() {
     const shouldReduceMotion = useReducedMotion();
 
     const tools = [
-        { name: 'VS Code', icon: '/assets/vscode.png' },
         { name: 'Firebase', icon: '/assets/firebase.png' },
         { name: 'MongoDB', icon: '/assets/mongodb.png' },
-        { name: 'Figma', icon: '/assets/figma.png' },
         { name: 'Git', icon: '/assets/git.png' },
         {
             name: 'Node.js',
@@ -22,6 +20,42 @@ export default function About() {
             icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
         },
         { name: 'Python', icon: '/assets/python.png' },
+        {
+            name: 'Next.js',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg'
+        },
+        {
+            name: 'TypeScript',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'
+        },
+        {
+            name: 'PHP',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg'
+        },
+        {
+            name: 'MySQL',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg'
+        },
+        {
+            name: 'Flutter',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg'
+        },
+        {
+            name: 'React Native',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+        },
+        {
+            name: 'PostgreSQL',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg'
+        },
+        {
+            name: 'n8n',
+            icon: 'https://avatars.githubusercontent.com/u/45487711?s=200&v=4'
+        },
+        {
+            name: 'Generative AI',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg'
+        },
     ];
 
     return (
@@ -67,7 +101,7 @@ export default function About() {
                                 <span className="italic font-black text-[#FFB22C]">Scalable Realities.</span>
                             </h3>
                             <p className="text-gray-700 dark:text-gray-400 text-lg leading-relaxed font-normal">
-                                I am <span className="text-black dark:text-white font-bold">Muskan Kamran</span>, a Full Stack Developer and the Founder of AIXORA Academy. Currently pursuing Software Engineering with a <span className="font-bold text-black dark:text-white underline decoration-[#FFB22C] decoration-[3px] underline-offset-4">3.95 CGPA</span>, I bridge the gap between robust backend logic and elegant frontend design.
+                                I am <span className="text-black dark:text-white font-bold">Muskan Kamran</span>, a Software Engineer specializing in Full Stack & AI development, and the Founder of AIXORA Academy. Currently pursuing Software Engineering with a <span className="font-bold text-black dark:text-white underline decoration-[#FFB22C] decoration-[3px] underline-offset-4">3.92 CGPA</span>, I bridge the gap between robust backend logic, elegant frontend design, and intelligent AI-powered systems.
                             </p>
                         </motion.div>
 
@@ -79,7 +113,7 @@ export default function About() {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900 dark:text-white">Technical Mastery</h4>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">MERN Stack, PHP-MySQL, & Flutter Development</p>
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">MERN Stack, PHP-MySQL, Flutter & AI/ML, RAG Pipelines</p>
                                 </div>
                             </motion.div>
 
@@ -90,7 +124,7 @@ export default function About() {
                                 <div>
                                     <h4 className="font-bold text-gray-900 dark:text-white">Academic Excellence</h4>
                                     <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
-                                        BS Software Engineering (3.95 CGPA) <br />
+                                        BS Software Engineering (3.92 CGPA) <br />
                                         & <span className="text-[#FFB22C] font-bold">ADSE Graduate from Aptech</span>
                                     </p>
                                 </div>
@@ -106,7 +140,7 @@ export default function About() {
                                 <div>
                                     <h4 className="font-bold text-gray-900 dark:text-white text-lg">Leadership & Impact</h4>
                                     <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                                        Founder @ <span className="text-[#FFB22C] font-bold">AIXORA</span> & JUW Chapter Lead <span className="text-[#FFB22C] font-bold">GDGOC</span>
+                                        Founder @ <span className="text-[#FFB22C] font-bold">AIXORA</span> · JUW Chapter Lead <span className="text-[#FFB22C] font-bold">GDGOC</span> · Event Director <span className="text-[#FFB22C] font-bold">JTECH 2026</span>
                                     </p>
                                 </div>
                             </motion.div>
@@ -162,7 +196,8 @@ export default function About() {
                                             src={tool.icon}
                                             alt={tool.name}
                                             className={`w-8 h-8 object-contain ${tool.name === 'React' || tool.name === 'Node.js' ? 'scale-110 p-0.5' : ''}`}
-                                        />                                    </motion.div>
+                                        />
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>

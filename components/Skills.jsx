@@ -2,20 +2,24 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SimpleIcon } from 'lucide-react'; // Ya icons manually bhi daal sakte hain
 
 export default function Skills() {
     const mainSkills = [
         { name: "MERN Stack", level: 80 },
         { name: "PHP & MySQL", level: 90 },
         { name: "Python (AI/ML)", level: 75 },
-        { name: "Frontend (Tailwind/React)", level: 85 },
-        { name: "Database Design", level: 90 }
+        { name: "Frontend (Tailwind/React/Next.js)", level: 85 },
+        { name: "Database Design", level: 90 },
+        { name: "Flutter & React Native", level: 75 },
+        { name: "RAG Pipelines & AI Agents", level: 78 },
+        { name: "TypeScript", level: 80 },
     ];
 
     const tools = [
-        "Git & GitHub", "Jira (Agile)", "Firebase", "Postman",
-        "Manual Testing", "REST APIs", "Vercel", "Linux"
+        "Git & GitHub", "Scrum (SFC Certified)", "Six Sigma (SSYB)", "Firebase",
+        "Postman", "REST APIs", "Vercel", "Linux",
+        "OpenAI API", "FAISS / Vector Search", "n8n (Workflow Automation)", "Figma",
+        "MongoDB", "PostgreSQL", "MySQL", "Groq AI",
     ];
 
     return (
@@ -69,7 +73,7 @@ export default function Skills() {
                         <div className="mt-12 p-6 rounded-2xl bg-[#FFB22C]/5 border border-[#FFB22C]/10">
                             <h5 className="text-[#FFB22C] font-bold text-sm mb-2">Workflow Strategy</h5>
                             <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                                I follow <span className="text-gray-900 dark:text-white font-bold">Agile Methodologies</span> with a focus on version control (Git) and structured project management via Jira to ensure scalable and bug-free delivery.
+                                I follow <span className="text-gray-900 dark:text-white font-bold">Agile & Scrum Methodologies</span> (SFC Certified) with a focus on version control (Git) and quality-driven delivery backed by <span className="text-gray-900 dark:text-white font-bold">Six Sigma (SSYB)</span> principles — ensuring scalable, structured, and bug-free development.
                             </p>
                         </div>
                     </div>
